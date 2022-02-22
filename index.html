@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>VueJS</h1>
+    </header>
+    <section id="events">
+      <h2>Events and actions</h2>
+      <button v-on:click ="add(2)">Add</button>
+      <button v-on:click="sub(2)">min</button>
+      <p>Result: {{counter}}</p>
+      <input type="text" v-on:input="updateName" placeholder="full name">
+      <p>your name is: {{name}}</p>
+      
+      <h4>save value in a session</h4>
+      <form @submit.prevent="saveData">
+        <input type="text" v-model="name" placeholder="name">
+        <br>
+        <input type="text" v-model="phone" placeholder="phone">
+        <br>
+        <input type="text" v-model="email" placeholder="email">
+        <br>
+        <button type="submit" v-bind:disabled="!name || !phone || !email">save</button>
+      </form>
+      <ul>
+          <button v-on:click="userData"> get user Data</button>
+          <li v-for="(item, index) in user">{{item}}</li>
+      </ul>
+    </section>
+    
+  </body>
+</html>
